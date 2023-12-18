@@ -22,11 +22,21 @@ public interface CustomerDao {
     public boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException;
       
     public String generateNewCustomerId(String id) throws SQLException, ClassNotFoundException;
-      
+
+   
     
 
 
     public boolean existCustomer(String id) throws SQLException, ClassNotFoundException;
-       
+
+
+
+
+    public CustomerDTO getAllcusromersById(String newValue) throws ClassNotFoundException, SQLException;
+
+
+
+
+   
     
 }

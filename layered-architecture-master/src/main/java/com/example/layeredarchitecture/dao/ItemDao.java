@@ -21,5 +21,17 @@ public interface ItemDao {
     public boolean existItem(String code) throws SQLException, ClassNotFoundException;
     
     public boolean deleteItem(String code) throws SQLException, ClassNotFoundException;
-     
+
+
+
+    public boolean existId(String code) throws SQLException, ClassNotFoundException;
+
+
+
+   
+
+    public ItemDTO getallItemsBycodes(String code) throws SQLException, ClassNotFoundException;
+
+   
+    public String generateId() throws SQLException, ClassNotFoundException ;
 }
