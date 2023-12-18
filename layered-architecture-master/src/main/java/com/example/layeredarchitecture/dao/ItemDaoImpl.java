@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import com.example.layeredarchitecture.db.DBConnection;
 import com.example.layeredarchitecture.model.ItemDTO;
-import com.example.layeredarchitecture.view.tdm.ItemTM;
+
 
 public class ItemDaoImpl implements ItemDao {
     @Override
@@ -76,5 +76,14 @@ public class ItemDaoImpl implements ItemDao {
         pstm.setString(1,code);
        boolean isDeleted= pstm.executeUpdate()>0;
        return isDeleted;
+    }
+    public ItemDTO searchItem(String newItemCode) throws SQLException, ClassNotFoundException {
+        Connection connection = DBConnection.getDbConnection().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Item WHERE code=?");
+        pstm.setString(1, newItemCode + "");
+        ResultSet rst = pstm.executeQuery();
+        rst.next();
+        ItemDTO item = new ItemDTO(newItemCode + "", rst.getString("description"), rst.getBigDecimal("unitPrice"), rst.getInt("qtyOnHand"));
+        return  item;
     }
 }

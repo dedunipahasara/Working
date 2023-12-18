@@ -2,7 +2,7 @@ package com.example.layeredarchitecture.controller;
 
 import com.example.layeredarchitecture.dao.CustomerDao;
 import com.example.layeredarchitecture.dao.CustomerDaoImpl;
-import com.example.layeredarchitecture.db.DBConnection;
+
 import com.example.layeredarchitecture.model.CustomerDTO;
 import com.example.layeredarchitecture.view.tdm.CustomerTM;
 import com.jfoenix.controls.JFXButton;
@@ -24,8 +24,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 
 
@@ -158,6 +156,7 @@ public class ManageCustomersFormController {
                 CustomerDTO customerDTO= new CustomerDTO(id,name,address);
                 boolean isSaved=customerDaoImpl.saveCustomer(customerDTO);
                 
+  
                 if(isSaved){
                       tblCustomers.getItems().add(new CustomerTM(id, name, address));
                 }
@@ -260,4 +259,9 @@ public class ManageCustomersFormController {
         return tempCustomersList.get(tempCustomersList.size() - 1).getId();
     }*/
 
+    
+       
 }
+   
+
+
